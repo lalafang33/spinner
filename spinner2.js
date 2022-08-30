@@ -1,0 +1,55 @@
+// process.stdout.write('hello from spinner1.js... \rheyyy\n');
+
+// setTimeout(() => {
+//   process.stdout.write('\r|   ');
+// }, 100);
+
+// setTimeout(() => {
+//   process.stdout.write('\r/   ');
+// }, 300);
+
+// setTimeout(() => {
+//   process.stdout.write('\r-   ');
+// }, 500);
+
+// setTimeout(() => {
+//   // Need to escape the backslash since it's a special character.
+//   process.stdout.write('\r\\   '); 
+// }, 700);
+
+// setTimeout(() => {
+//   process.stdout.write('\r|   ');
+// }, 800);
+
+// setTimeout(() => {
+//   process.stdout.write('\r/   ');
+// }, 1000);
+
+// setTimeout(() => {
+//   process.stdout.write('\r-   ');
+// }, 1200);
+
+// setTimeout(() => {
+//   // Need to escape the backslash since it's a special character.
+//   process.stdout.write('\r\\   '); 
+// }, 1400);
+// setTimeout(() => {
+//   process.stdout.write('\r|   ');
+// }, 1600);
+
+let frameSec = 200; 
+const animation = ['|','/','-','\\'];
+const time = frameSec * animation.length;
+
+const loop = setInterval(() => {
+for (let i =0; i < animation.length; i++){
+  setTimeout(() => {
+    process.stdout.write(`\r ${animation[i]}  `);
+  }, frameSec * i);
+ }
+}, time);
+
+setTimeout(() => {
+  clearInterval(loop);
+  process.stdout.write('\n');
+}, 2400);
